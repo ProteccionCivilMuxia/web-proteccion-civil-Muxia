@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Fotos - Protección Civil Muxía</title>
+<style>
+body{
+  background-color: rgb(249,175,119);
+  font-family: Arial, sans-serif;
+  margin:0;
+}
+/* TITULO PRINCIPAL */
+.titulo{
+  text-align:center;
+  font-size:40px;
+  margin:30px 0;
+}
+
+/* TITULO AÑO */
+.titulo-ano{
+  font-size:28px;
+  margin:40px 0 20px 40px;
+  font-weight:bold;
+}
+
+/* GALERIA */
+.galeria{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  padding:0 40px 40px 40px;
+}
+
+.galeria img{
+  width:280px;
+  height:180px;
+  object-fit:cover;
+  border-radius:10px;
+  border:2px solid black;
+  box-shadow:5px 5px 0px rgba(0,0,0,0.15);
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.galeria img:hover{
+  transform:scale(1.05);
+}
+
+/* ---------------- LIGHTBOX ---------------- */
+.lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+
+  z-index:9999;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+  border:3px solid white;
+}
+
+.lightbox.activo{
+  display:flex;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="titulo">Fotos 2011-2015</h1>
+
+<h2 class="titulo-ano">2011</h2>
+
+<div class="galeria">
+<img src="foto-11-1-min.jpg">
+<img src="foto-11-3-min.jpg">
+<img src="foto-11-4-min.jpg">
+<img src="foto-11-7-min.jpg">
+<img src="foto-11-8-min.jpg">
+<img src="foto-11-9-min.jpg">
+<img src="foto-11-11-min.jpg">
+<img src="foto-11-12-min.jpg">
+<img src="foto-11-14-min.jpg">
+<img src="foto-11-16-min.jpg">
+<img src="foto-11-17-min.jpg">
+<img src="foto-11-19-min.jpg">
+<img src="foto-11-25-min.jpg">
+<img src="foto-11-27-min.jpg">
+<img src="foto-11-28-min.jpg">
+</div>
+
+<h2 class="titulo-ano">2012</h2>
+
+<div class="galeria">
+<img src="foto-12-1-min.jpg">
+<img src="foto-12-2-min.jpg">
+<img src="foto-12-3-min.jpg">
+<img src="foto-12-4-min.jpg">
+<img src="foto-12-5-min.jpg">
+<img src="foto-12-6-min.jpg">
+<img src="foto-12-7-min.jpg">
+<img src="foto-12-9-min.jpg">
+<img src="foto-12-12-min.jpg">
+<img src="foto-12-13-min.jpg">
+<img src="foto-12-14-min.jpg">
+<img src="foto-12-15-min.jpg">
+<img src="foto-12-16-min.jpg">
+<img src="foto-12-20-min.jpg">
+<img src="foto-12-21-min.jpg">
+<img src="foto-12-22-min.jpg">
+<img src="foto-12-25-min.jpg">
+<img src="foto-12-28-min.jpg">
+<img src="foto-12-29-min.jpg">
+<img src="foto-12-30-min.jpg">
+<img src="foto-12-34-min.jpg">
+
+</div>
+
+<h2 class="titulo-ano">2013</h2>
+
+<div class="galeria">
+<img src="foto-13-1-min.jpg">
+<img src="foto-13-4-min.jpg">
+<img src="foto-13-6-min.jpg">
+<img src="foto-13-8-min.jpg">
+<img src="foto-13-12-min.jpg">
+<img src="foto-13-14-min.jpg">
+<img src="foto-13-17-min.jpg">
+
+</div>
+<h2 class="titulo-ano">2015</h2>
+
+<div class="galeria">
+<img src="foto-15-1-min.jpg">
+<img src="foto-15-2-min.jpg">
+<img src="foto-15-4-min.jpg">
+<img src="foto-15-5-min.jpg">
+<img src="foto-15-6-min.jpg">
+<img src="foto-15-7-min.jpg">
+<img src="foto-15-8-min.jpg">
+<img src="foto-15-9-min.jpg">
+<img src="foto-15-10-min.jpg">
+
+
+</div>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <img id="imgGrande" src="">
+</div>
+
+<script>
+const imagenes = document.querySelectorAll('.galeria img');
+const lightbox = document.getElementById('lightbox');
+const imgGrande = document.getElementById('imgGrande');
+
+// abrir imagen
+imagenes.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.classList.add('activo');
+    imgGrande.src = img.src;
+  });
+});
+
+// cerrar al hacer click fuera
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('activo');
+});
+</script>
+
+</body>
+</html>
